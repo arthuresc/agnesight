@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import EmailIcon from './assets/images/svg/email'
+import EmailIcon from './assets/icons/svg/Email'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+      <div className="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-neutral-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
         {/* <img className="size-12 shrink-0 " src="./src/assets/images/svg/email.svg" alt="ChitChat Logo" />  */}
         <EmailIcon state="warning" />
         <div>
