@@ -2,17 +2,29 @@ import React, { useCallback, useState } from 'react';
 
 const useFetch = () => {
   const [ data, setData ] = useState(null);
-  const [ loading, setLoading ] = useState(null);
+  const [ loading, setLoading ] = useState(false);
   const [ error, setError ] = useState(null);
 
-  const request = useCallback((url, options) => {
+  const request = useCallback( async(serviceMethod, options) => {
     let response;
     let json;
     
     try {
-      response = fetch()
+      setError(null);
+      setLoading(true);
+      response = await serviceMethod(options);
+      json = await response.json();
+      if(response.ok === false) throw new Error(json.message);
+    }catch(err:any) { // ajustar pR objeto promise e colocar o tipo certo dentro do arquivo de tipos standard
+      json = null;
+      setError(err.message);
+      console.error('Error', err.status, err.message, new Error(err));
+    }finally{
+      setData(json);
+      setLoading(false)
+      return {loading, json};
     }
-  })
+  }, [])
   
   
   
