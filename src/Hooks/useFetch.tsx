@@ -5,7 +5,7 @@ const useFetch = () => {
   const [ loading, setLoading ] = useState(false);
   const [ error, setError ] = useState(null);
 
-  const request = useCallback( async(url:string, options:object) => {
+  const request = useCallback( async(url:string, options:object = {}) => {
     let response;
     let json;
     
@@ -22,6 +22,7 @@ const useFetch = () => {
     }finally{
       setData(json);
       setLoading(false)
+      console.log(data, json, loading)
       return {loading, json};
     }
   }, [])
