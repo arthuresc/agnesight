@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import EmailIcon from './assets/icons/svg/Email'
+import EmailIcon from './Assets/Icons/Svg/Email'
 
 function App() {
   const [count, setCount] = useState(0)

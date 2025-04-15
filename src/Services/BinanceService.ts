@@ -1,0 +1,1 @@
+const get = () => 'https://api.binance.com/api/v3/exchangeInfo' 
