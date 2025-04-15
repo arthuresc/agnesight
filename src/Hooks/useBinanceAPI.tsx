@@ -6,7 +6,7 @@ const useBinanceAPI = () => {
   const [error, setError] = useState(null);
 
 
-const request = useCallback( async (url, ) => {})
+const request = useCallback( async (url, options) => {})
   try {
     
   }

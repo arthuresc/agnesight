@@ -1,18 +1,18 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const useFetch = () => {
   const [ data, setData ] = useState(null);
   const [ loading, setLoading ] = useState(false);
   const [ error, setError ] = useState(null);
 
-  const request = useCallback( async(serviceMethod, options) => {
+  const request = useCallback( async(url:string, options:object) => {
     let response;
     let json;
     
     try {
       setError(null);
       setLoading(true);
-      response = await serviceMethod(options);
+      response = await fetch(url, options);
       json = await response.json();
       if(response.ok === false) throw new Error(json.message);
     }catch(err:any) { // ajustar pR objeto promise e colocar o tipo certo dentro do arquivo de tipos standard
@@ -31,4 +31,4 @@ const useFetch = () => {
   return {data, loading, error, request}
 }
 
-export default useFetch
+export default useFetch;
