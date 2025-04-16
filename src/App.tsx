@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import EmailIcon from './Assets/Icons/Svg/Email'
 import useFetch from './Hooks/useFetch'
+import useBinanceAnnouncementsAPI from './Hooks/useBinanceAnnouncementsAPI'
 
 function App() {
   const [count, setCount] = useState(0)
 
   const { data, error, loading, request } = useFetch();
+
+  useBinanceAnnouncementsAPI()
 
   useEffect(() => {
     request('https://api.binance.com/api/v3/exchangeInfo')
