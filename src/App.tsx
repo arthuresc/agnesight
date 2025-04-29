@@ -9,11 +9,14 @@ function App() {
 
   const { data, error, loading, request } = useFetch();
 
-  useBinanceAnnouncementsAPI()
+  // const {data: dataBinance, error: errroBinance, loading: loadingBinance, options:optionBinance } = useBinanceAnnouncementsAPI()
 
-  useEffect(() => {
-    request('https://api.binance.com/api/v3/exchangeInfo')
-  }, [request])
+console.log(dataBinance, ':turtle:')
+
+  // useEffect(() => {
+  //   request('https://api.binance.com/api/v3/exchangeInfo')
+  // }, [request])
+  
 
   return (
     <>
@@ -29,4 +32,5 @@ function App() {
   )
 }
 
-export default App
+export default App;
+
