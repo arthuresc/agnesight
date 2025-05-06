@@ -11,7 +11,7 @@ function App() {
 
   // const {data: dataBinance, error: errroBinance, loading: loadingBinance, options:optionBinance } = useBinanceAnnouncementsAPI()
 
-console.log(dataBinance, ':turtle:')
+// console.log(dataBinance, ':turtle:')
 
   // useEffect(() => {
   //   request('https://api.binance.com/api/v3/exchangeInfo')

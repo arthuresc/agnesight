@@ -15,7 +15,8 @@ const useFetch = () => {
       response = await fetch(url, options);
       json = await response.json();
       if(response.ok === false) throw new Error(json.message);
-    }catch(err:any) { // ajustar pR objeto promise e colocar o tipo certo dentro do arquivo de tipos standard
+    }catch(err:any) {
+      // ajustar pR objeto promise e colocar o tipo certo dentro do arquivo de tipos standard
       json = null;
       setError(err.message);
       console.error('Error', err.status, err.message, new Error(err));

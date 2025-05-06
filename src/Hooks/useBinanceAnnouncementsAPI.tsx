@@ -10,7 +10,7 @@ const useBinanceAnnouncementsAPI = (options:object = {}) => {
   
   useEffect(() => {
     request(url, options);
-  }, [request, url, options])
+  }, [url, options])
 
   console.log(data, '🚨')
   return {data, loading, error, options}
