@@ -4,6 +4,7 @@ const useFetch = () => {
   const [ data, setData ] = useState(null);
   const [ loading, setLoading ] = useState(false);
   const [ error, setError ] = useState(null);
+  // const [ refresh, setRefresh ] = useState(null);
 
   const request = useCallback( async(url:string, options:object = {}) => {
     let response;
@@ -21,6 +22,8 @@ const useFetch = () => {
       setError(err.message);
       console.error('Error', err.status, err.message, new Error(err));
     }finally{
+      // !refresh ? setRefresh(false) : null;
+      console.log(json.data, '😀')
       setData(json);
       setLoading(false)
       console.log(data, json, loading)

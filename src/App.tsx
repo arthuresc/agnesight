@@ -5,17 +5,18 @@ import useFetch from './Hooks/useFetch'
 import useBinanceAnnouncementsAPI from './Hooks/useBinanceAnnouncementsAPI'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
-  const { data, error, loading, request } = useFetch();
-
+  
   // const {data: dataBinance, error: errroBinance, loading: loadingBinance, options:optionBinance } = useBinanceAnnouncementsAPI()
+  
+  // console.log(dataBinance, ':turtle:')
+  
+  const { currenciesData: dataBinance, error, loading } = useBinanceAnnouncementsAPI();
 
-// console.log(dataBinance, ':turtle:')
-
+  console.log(dataBinance, '🦜')
   // useEffect(() => {
-  //   request('https://api.binance.com/api/v3/exchangeInfo')
-  // }, [request])
+  // }, [])
   
 
   return (

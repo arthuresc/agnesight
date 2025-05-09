@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useFetch from './useFetch'
 import { get } from '../Services/BinanceAnnouncementsAPIService'
 
@@ -6,14 +6,24 @@ import { get } from '../Services/BinanceAnnouncementsAPIService'
 const useBinanceAnnouncementsAPI = (options:object = {}) => {
   
   const { data, loading, error, request } = useFetch();
+
+  const [ httpOptions, setHttpOptions ] = useState(options);
+  const [ currenciesData, setCurrenciesData ] = useState(null);
   const url = get(15);
   
   useEffect(() => {
-    request(url, options);
-  }, [url, options])
+    request(url, httpOptions);
+  }, [httpOptions])
 
   console.log(data, '🚨')
-  return {data, loading, error, options}
+
+  // const dataArray = data !== null && data && [...data.data]
+  // setCurrenciesData(dataArray)
+  // if(data !== null) {
+  // }
+
+
+  return {data, currenciesData, loading, error, setHttpOptions}
 };
 
 
