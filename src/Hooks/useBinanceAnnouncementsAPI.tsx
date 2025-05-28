@@ -15,7 +15,6 @@ const useBinanceAnnouncementsAPI = (options:object = {}) => {
     request(url, httpOptions);
   }, [httpOptions])
 
-  console.log(data, '🚨')
 
   // const dataArray = data !== null && data && [...data.data]
   // setCurrenciesData(dataArray)
