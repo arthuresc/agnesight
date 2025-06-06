@@ -4,6 +4,7 @@ import { get } from '../Services/BinanceAnnouncementsAPIService'
 
 
 const useBinanceAnnouncementsAPI = (options:object = {}) => {
+  // console.log('Rodou o useBinanceAnnouncementsAPI')
   
   const { data, loading, error, request } = useFetch();
 
@@ -12,7 +13,9 @@ const useBinanceAnnouncementsAPI = (options:object = {}) => {
   const url = get(15);
   
   useEffect(() => {
+    // console.log(data, '⬆️ antes useBinanceAnnouncementsAPI data')
     request(url, httpOptions);
+    // console.log(data, '⬇️ depois useBinanceAnnouncementsAPI data')
   }, [httpOptions])
 
 
@@ -21,7 +24,7 @@ const useBinanceAnnouncementsAPI = (options:object = {}) => {
   // if(data !== null) {
   // }
 
-
+// console.log(data, '🏎️')
   return {data, currenciesData, loading, error, setHttpOptions}
 };
 

@@ -16,4 +16,4 @@ const todo2 = updateTodo(todo1, {
   description: 'throw out trash',
 });
 
-console.log(todo2);
+// console.log(todo2);

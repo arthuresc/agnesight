@@ -1,23 +1,32 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import EmailIcon from './Assets/Icons/Svg/Email'
-import useFetch from './Hooks/useFetch'
+// import useFetch from './Hooks/useFetch'
 import useBinanceAnnouncementsAPI from './Hooks/useBinanceAnnouncementsAPI'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   
-  // const {data: dataBinance, error: errroBinance, loading: loadingBinance, options:optionBinance } = useBinanceAnnouncementsAPI()
+  // const {data: dataBinance, error: erroBinance, loading: loadingBinance, options:optionBinance } = useBinanceAnnouncementsAPI()
   
   // console.log(dataBinance, ':turtle:')
-  
-  const { currenciesData: dataBinance, error, loading } = useBinanceAnnouncementsAPI();
+  // debugger;  
+  const { data: dataBinance, currenciesData, error, loading } = useBinanceAnnouncementsAPI();
 
-  console.log(dataBinance, '🦜')
+  console.log(dataBinance,'🦜')
   // useEffect(() => {
   // }, [])
   
+  if (loading) {
+    return <div className="text-center text-2xl font-bold">Loading...</div>
+  }
+  if (error) {
+    return <div className="text-center text-2xl font-bold text-red-500">Error: {error.message}</div>
+  }
+  if (!dataBinance || !dataBinance.data || dataBinance.data.length === 0) {
+    return <div className="text-center text-2xl font-bold">No data available</div>
+  }
 
   return (
     <>
@@ -26,6 +35,9 @@ function App() {
         <EmailIcon state="warning" />
         <div>
           <div className="text-xl font-medium text-black dark:text-white">ChitChat</div>
+          {dataBinance.data && dataBinance.data.map((item: any) => {
+            return (<div className="text-xl font-medium text-black dark:text-white"> {item.title} </div>);
+          })}
           <p className="text-gray-500 dark:text-gray-400">You have a new message!</p>
         </div>
       </div>

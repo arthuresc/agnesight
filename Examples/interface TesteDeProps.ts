@@ -12,4 +12,4 @@ const objeto: TesteDeProps = {
   comidaFavorita: 'Strogonoff',
 };
 
-console.log(objeto);
+// console.log(objeto);
